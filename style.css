@@ -1,0 +1,128 @@
+/* Resetting margin, padding, and setting box-sizing to border-box for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Setting up the body to take full viewport height, center content, and add a gradient background */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(136deg, rgb(195, 252, 223) 0%, rgb(230, 142, 252) 100%);
+}
+
+/* Wrapper container for images */
+.wrapper {
+  position: relative;
+  width: 700px;
+  height: 400px;
+}
+
+/* General styles for images inside the wrapper */
+.wrapper .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Setting up the image properties with transition and initial clip-path */
+.wrapper .img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  clip-path: circle(0% at 0% 100%);
+  transition: all 0.7s;
+}
+
+/* Radio button logic to apply different clip-paths based on selection */
+
+/* When the first radio button is checked */
+#one:checked ~ .img-1 img {
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* When the second radio button is checked */
+#two:checked ~ .img-1 img,
+#two:checked ~ .img-2 img {
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* When the third radio button is checked */
+#three:checked ~ .img-1 img,
+#three:checked ~ .img-2 img,
+#three:checked ~ .img-3 img {
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* When the fourth radio button is checked */
+#four:checked ~ .img-1 img,
+#four:checked ~ .img-2 img,
+#four:checked ~ .img-3 img,
+#four:checked ~ .img-4 img {
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* When the fifth radio button is checked */
+#five:checked ~ .img-1 img,
+#five:checked ~ .img-2 img,
+#five:checked ~ .img-3 img,
+#five:checked ~ .img-4 img,
+#five:checked ~ .img-5 img {
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* When the sixth radio button is checked */
+#six:checked ~ .img-1 img,
+#six:checked ~ .img-2 img,
+#six:checked ~ .img-3 img,
+#six:checked ~ .img-4 img,
+#six:checked ~ .img-5 img,
+#six:checked ~ .img-6 img { /* Missing comma before this line */
+  clip-path: circle(150% at 0% 100%);
+}
+
+/* Slider controls container */
+.wrapper .sliders {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: flex;
+}
+
+/* Style for individual slider labels (radio button labels) */
+.wrapper .sliders label {
+  border: 2px solid rgb(0, 0, 0);
+  width: 13px;
+  height: 13px;
+  margin: 0 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Style for the selected slider label */
+#one:checked ~ .sliders label.one,
+#two:checked ~ .sliders label.two,
+#three:checked ~ .sliders label.three,
+#four:checked ~ .sliders label.four,
+#five:checked ~ .sliders label.five,
+#six:checked ~ .sliders label.six { /* Missing comma before this line */
+  width: 35px;
+  border-radius: 14px;
+  background: rgb(252, 142, 234);
+}
+
+/* Hover effect for slider labels */
+.sliders label:hover {
+  background: rgb(252, 142, 234);
+}
+
+/* Hide the radio input elements */
+input[type="radio"] {
+  display: none;
+}
